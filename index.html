@@ -4,61 +4,331 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZYVAH | Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 24px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
-      color: #111;
+      color: #1a1a1a;
+      background: #ffffff;
+      min-height: 100vh;
     }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 16px;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    p {
-      font-size: 20px;
-      color: #444;
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
     }
-    .cta {
-      margin-top: 32px;
-      padding: 14px 24px;
-      border: 1px solid #111;
+    .logo-image {
+      max-width: 400px;
+      height: auto;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 20px 80px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      margin: 40px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    .cta-button {
       display: inline-block;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
       text-decoration: none;
-      color: #111;
-      border-radius: 8px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
     }
-    .section {
-      margin-top: 48px;
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+    .problem {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .problem h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .problem p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .features {
+      padding: 80px 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      margin: 40px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .features h2 {
+      text-align: center;
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      margin-bottom: 60px;
+      color: #333;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    .feature-card p {
+      color: #666;
+      font-size: 1rem;
+    }
+    .feature-card.premium {
+      position: relative;
+      border: 2px solid #667eea;
+    }
+    .premium-badge {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .waitlist {
+      padding: 80px 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      margin: 40px 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .waitlist h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .waitlist p {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    .waitlist-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .waitlist-form input,
+    .waitlist-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e1e5e9;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+      font-family: inherit;
+    }
+    .waitlist-form input:focus,
+    .waitlist-form textarea:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    .waitlist-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .waitlist-form button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .waitlist-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+    .built-for {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .built-for h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .built-for p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .header {
+        padding: 20px 10px;
+      }
+      .logo-image {
+        max-width: 300px;
+      }
+      .hero {
+        padding: 60px 20px 60px;
+        margin: 20px 10px;
+      }
+      .features {
+        margin: 20px 10px;
+        padding: 60px 20px;
+      }
+      .waitlist {
+        margin: 20px 10px;
+        padding: 60px 20px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .feature-card {
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Run zoning feasibility in minutes, not days</h1>
-  <p>
-    Instant parcel yield, FAR, parking, and development scenario analysis
-    for architects, developers, and entitlement teams.
-  </p>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <img src="logo/3_rec.png" alt="ZYVAH Logo" class="logo-image">
+      </div>
+    </header>
 
-  <a class="cta" href="mailto:founder@yourdomain.com">
-    Request Early Access
-  </a>
+    <section class="hero">
+      <h1>Run zoning feasibility in minutes, not days</h1>
+      <p>Instant parcel yield, FAR, parking, and development scenario analysis for architects, developers, and entitlement teams.</p>
+      <a class="cta-button" href="#waitlist">Join Beta Waitlist</a>
+    </section>
 
-  <div class="section">
-    <h2>Built for</h2>
-    <p>
-      Real estate developers · Architects · Land acquisition teams ·
-      Entitlement consultants
-    </p>
-  </div>
+    <section class="problem">
+      <h2>The Problem</h2>
+      <p>Traditional zoning analysis is slow, expensive, and error-prone. Teams spend days manually checking regulations, calculating yields, and assessing development potential. This delays projects, increases costs, and limits innovation in real estate development.</p>
+    </section>
 
-  <div class="section">
-    <h2>Coming Soon</h2>
-    <p>
-      Join our early access waitlist and help shape the beta.
-    </p>
+    <section class="features">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>Parcel Lookup by Address</h3>
+          <p>Quickly find and analyze any parcel by simply entering an address. No more searching through complex databases.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Zoning & Floor Area Analysis</h3>
+          <p>Comprehensive zoning code analysis with automated FAR calculations and building envelope determinations.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Estimated Unit Yield</h3>
+          <p>Calculate maximum developable units based on zoning constraints, building efficiency, and market standards.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Parking Calculations</h3>
+          <p>Automated parking requirement calculations based on local zoning codes and building use types.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Height & Setbacks Constraints</h3>
+          <p>Analyze building height limits, setback requirements, and coverage restrictions for optimal site planning.</p>
+        </div>
+        <div class="feature-card premium">
+          <div class="premium-badge">Beta Premium</div>
+          <h3>Parcel Assemblage</h3>
+          <p>Identify adjacent parcels for potential acquisition and analyze combined development potential.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitlist" class="waitlist">
+      <h2>Join the Beta</h2>
+      <p>Be among the first to experience the future of zoning analysis. Get early access and help shape ZYVAH.</p>
+      <form class="waitlist-form" action="mailto:founder@yourdomain.com" method="post" enctype="text/plain">
+        <input type="text" name="full_name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="company" placeholder="Company">
+        <input type="text" name="role" placeholder="Your Role">
+        <input type="text" name="city_market" placeholder="Primary City / Market">
+        <textarea name="pain_point" placeholder="What's your biggest zoning pain point?"></textarea>
+        <button type="submit">Request Early Access</button>
+      </form>
+    </section>
+
+    <section class="built-for">
+      <h2>Built for</h2>
+      <p>Real estate developers · Architects · Land acquisition teams · Entitlement consultants</p>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 ZYVAH LLC. All rights reserved.</p>
+    </footer>
   </div>
 </body>
 </html>
