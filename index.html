@@ -354,20 +354,16 @@
   let submitted = false;
 </script>
 
-<form ... onsubmit="submitted=true;">
-<p id="success-message" style="display:none; color:green;">
-  Thanks! You’re on the waitlist.
-</p>
-<iframe 
-  name="hidden_iframe" 
-  style="display:none;"
-  onload="if(submitted) { document.getElementById('success-message').style.display = 'block'; submitted=false; }">
-</iframe>
+<p id="success-message" style="display:none; color:green; margin-bottom:20px;">
+    Thanks! You’re on the waitlist.
+  </p>
+
   <form 
-    action="https://forms.gle/9UiFYKoTVfkY7j6H9" 
+    action="https://docs.google.com/forms/d/e/1FAIpQLSfptFtgd00sj-NPnhxgYgkk5nZGpm1_wp7tjPy8Q9Lxdrr3iQ/formResponse" 
     method="POST" 
     target="hidden_iframe"
     onsubmit="submitted=true;"
+    class="waitlist-form"
   >
     <p style="text-align: left;"><label for="full_name">Full Name</label>
     <input id="full_name" type="text" name="entry.1598634094" required style="width: 100%; height: 28px;"></p>
@@ -392,7 +388,17 @@
   </form>
 
   <!-- Hidden iframe is used to allow form submission without redirecting the user -->
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
+  <iframe
+    name="hidden_iframe"
+    style="display:none;"
+    onload="
+      if(submitted){
+        document.getElementById('success-message').style.display='block';
+        submitted=false;
+      }
+    ">
+  </iframe>
+
 </section>
 
     <section class="built-for">
