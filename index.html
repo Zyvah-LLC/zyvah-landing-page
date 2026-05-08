@@ -355,13 +355,16 @@
 </script>
 
 <form ... onsubmit="submitted=true;">
-
-<iframe name="hidden_iframe"
-  onload="if(submitted) { alert('Thanks! You’re on the waitlist.'); }"
-  style="display:none;">
+<p id="success-message" style="display:none; color:green;">
+  Thanks! You’re on the waitlist.
+</p>
+<iframe 
+  name="hidden_iframe" 
+  style="display:none;"
+  onload="if(submitted) { document.getElementById('success-message').style.display = 'block'; submitted=false; }">
 </iframe>
   <form 
-    action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" 
+    action="https://forms.gle/9UiFYKoTVfkY7j6H9" 
     method="POST" 
     target="hidden_iframe"
     onsubmit="submitted=true;"
