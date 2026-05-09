@@ -375,7 +375,59 @@
     <input id="company" type="text" name="entry.1923330604"></p>
 
     <p style="text-align: left;"><label for="role">Your Role</label>
-    <input id="role" type="text" name="entry.361658911"></p>
+
+  <select 
+    id="role"
+    name="entry.361658911"
+    required
+    style="
+      width:100%;
+      padding:18px 20px;
+      border:1px solid #dde2ea;
+      border-radius:16px;
+      background:#f8f9ff;
+      color:#111;
+      font-size:1rem;
+      font-family:inherit;
+    "
+    onchange="
+      document.getElementById('other-role-container').style.display =
+      this.value === 'Other' ? 'block' : 'none';
+    "
+  >
+    <option value="">Select your role</option>
+    <option value="Developer">Real EstateDeveloper</option>
+    <option value="Architect">Architect</option>
+    <option value="Investor">Investor</option>
+    <option value="Broker">Broker</option>
+    <option value="Consultant">Consultant</option>
+    <option value="Other">Other</option>
+  </select>
+</p>
+
+<div 
+  id="other-role-container" 
+  style="display:none; text-align:left;">
+  <label for="other_role">Please specify</label>
+
+  <input
+    id="other_role"
+    type="text"
+    name="entry.361658911.other_option_response"
+    placeholder="Enter your role"
+    style="
+      width:100%;
+      padding:18px 20px;
+      border:1px solid #dde2ea;
+      border-radius:16px;
+      background:#f8f9ff;
+      color:#111;
+      font-size:1rem;
+      font-family:inherit;
+      margin-top:10px;
+    "
+  >
+</div>
 
     <p style="text-align: left;"><label for="city_market">Primary City / Market</label>
     <input id="city_market" type="text" name="entry.242489889"></p>
