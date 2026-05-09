@@ -370,11 +370,26 @@
   let submitted = false;
 </script>
 
-<p id="success-message" style="display:none; color:green; margin-bottom:20px;">
-    Thanks! You’re on the waitlist.
-  </p>
+<p 
+  id="success-message" 
+  style="
+    display:none;
+    color:#155724;
+    background:#d4edda;
+    border:1px solid #c3e6cb;
+    padding:20px;
+    border-radius:16px;
+    font-size:1.1rem;
+    font-weight:600;
+    max-width:640px;
+    margin:0 auto;
+  "
+  >
+Thanks! You’re officially on the beta waitlist.
+</p>
 
   <form 
+    id="waitlist-form"
     action="https://docs.google.com/forms/d/e/1FAIpQLSfptFtgd00sj-NPnhxgYgkk5nZGpm1_wp7tjPy8Q9Lxdrr3iQ/formResponse" 
     method="POST" 
     target="hidden_iframe"
@@ -423,11 +438,17 @@
     style="display:none;"
     onload="
       if(submitted){
-        document.getElementById('success-message').style.display='block';
+        document.getElementById('waitlist-form').style.display='none';
+        const success = document.getElementById('success-message');
+        success.style.display='block';
+        success.scrollIntoView({
+          behavior:'smooth',
+          block:'center'
+        });
         submitted=false;
       }
     ">
-  </iframe>
+  /iframe>
 
 </section>
 
